@@ -1,0 +1,29 @@
+# Local configuration and credentials
+.env
+.playwright-profile/
+profile/
+
+# Captured traffic and generated data
+*.har
+out/
+exports/
+reports/
+
+# Python tooling
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Build output
+build/
+dist/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

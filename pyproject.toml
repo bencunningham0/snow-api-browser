@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "snow-api-browser"
+version = "0.1.0"
+description = "Browser-authenticated Python SDK for ServiceNow APIs"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "playwright>=1.43.0",
+    "python-dotenv>=1.0.0",
+    "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.6.0",
+]
+
+[project.scripts]
+snow-api-browser-login = "snow_api_browser.login_cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/snow_api_browser"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+markers = [
+    "integration: live integration tests against a real ServiceNow instance",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
